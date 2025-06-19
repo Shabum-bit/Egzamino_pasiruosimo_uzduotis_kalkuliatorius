@@ -1,0 +1,2 @@
+# Egzamino_pasiruosimo_uzduotis_kalkuliatorius
+Techin homework
