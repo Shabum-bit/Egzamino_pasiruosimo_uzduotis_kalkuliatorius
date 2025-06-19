@@ -52,7 +52,7 @@ public class CalcPage extends BasePage {
 
     // Metodas įvesti pirmą skaičių
     public void enterFirstNumber(String number) {
-        System.out.println("Įvedu pirmą skaičių: " + number);
+        System.out.println("Ivedu pirma skaiciu: " + number);
         WebElement firstInput = getFirstInput();
         firstInput.clear();
         firstInput.sendKeys(number);
@@ -60,7 +60,7 @@ public class CalcPage extends BasePage {
 
     // Metodas pasirinkti operaciją
     public void selectOperation(String operation) {
-        System.out.println("Renkuosi operaciją: " + operation);
+        System.out.println("Renkuosi operacija: " + operation);
         WebElement functionDropdown = getFunctionDropdown();
         Select operationSelect = new Select(functionDropdown);
         operationSelect.selectByValue(operation);
@@ -68,7 +68,7 @@ public class CalcPage extends BasePage {
 
     // Metodas įvesti antrą skaičių
     public void enterSecondNumber(String number) {
-        System.out.println("Įvedu antrą skaičių: " + number);
+        System.out.println("Ivedu antra skaiciu: " + number);
         WebElement secondInput = getSecondInput();
         secondInput.clear();
         secondInput.sendKeys(number);
@@ -76,7 +76,7 @@ public class CalcPage extends BasePage {
 
     // Metodas paspausti skaičiavimo mygtuką
     public void clickCalculate() {
-        System.out.println("Spaudžiu Calculate mygtuką");
+        System.out.println("Spaudziu Calculate mygtuka");
         WebElement calculateButton = getCalculateButton();
         calculateButton.click();
 
@@ -94,7 +94,7 @@ public class CalcPage extends BasePage {
 
     // Metodas išvalyti visus laukus
     public void clearAllFields() {
-        System.out.println("Išvalu visus laukus");
+        System.out.println("Isvalau visus laukus");
 
         try {
             WebElement firstInput = getFirstInput();
@@ -111,7 +111,7 @@ public class CalcPage extends BasePage {
 
     // Metodas atlikti pilną skaičiavimą vienu kartu
     public String performCalculation(String firstNumber, String operation, String secondNumber) {
-        System.out.println("Atliekamas skaičiavimas: " + firstNumber + " " + operation + " " + secondNumber);
+        System.out.println("Atliekamas skaiciavimas: " + firstNumber + " " + operation + " " + secondNumber);
 
         try {
             enterFirstNumber(firstNumber);
@@ -122,7 +122,7 @@ public class CalcPage extends BasePage {
             return getResult();
 
         } catch (Exception e) {
-            System.err.println("Klaida skaičiuojant: " + e.getMessage());
+            System.err.println("Klaida skaiciuojant: " + e.getMessage());
             // Bandyk atnaujinti puslapį ir pakartoti
             driver.navigate().refresh();
 
@@ -146,11 +146,11 @@ public class CalcPage extends BasePage {
             getCalculateButton();
             getAnswerField();
 
-            System.out.println("✓ Kalkuliatorius pasiruošęs");
+            System.out.println("✓ Kalkuliatorius pasiruoses");
             return true;
 
         } catch (Exception e) {
-            System.out.println("❌ Kalkuliatorius nepasiruošęs: " + e.getMessage());
+            System.out.println("❌ Kalkuliatorius nepasiruoses: " + e.getMessage());
             return false;
         }
     }

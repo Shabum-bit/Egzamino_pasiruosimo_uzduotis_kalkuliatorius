@@ -19,7 +19,7 @@ public class BaseTest {
     // Metodas prieš kiekvieną testą
     @BeforeEach
     public void setUp() {
-        System.out.println("=== PRADEDAME TESTĄ ===");
+        System.out.println("=== PRADEDAME TESTA ===");
 
         try {
             // Chrome nustatymai
@@ -42,10 +42,10 @@ public class BaseTest {
             driver.manage().window().maximize();
 
             // Einame į kalkuliatoriaus puslapį
-            System.out.println("Einame į: " + BASE_URL);
+            System.out.println("Einame i: " + BASE_URL);
             driver.get(BASE_URL);
 
-            System.out.println("✓ WebDriver sėkmingai nustatytas");
+            System.out.println("✓ WebDriver sekmingai nustatytas");
 
         } catch (Exception e) {
             System.err.println("❌ Klaida nustatant WebDriver: " + e.getMessage());
@@ -57,14 +57,14 @@ public class BaseTest {
     // Metodas po kiekvieno testo
     @AfterEach
     public void tearDown() {
-        System.out.println("=== BAIGIAME TESTĄ ===");
+        System.out.println("=== BAIGIAME TESTA ===");
 
         if (driver != null) {
             try {
                 driver.quit();
-                System.out.println("✓ WebDriver uždarytas");
+                System.out.println("✓ WebDriver uzdarytas");
             } catch (Exception e) {
-                System.err.println("⚠ Klaida uždarant WebDriver: " + e.getMessage());
+                System.err.println("⚠ Klaida uzdarant WebDriver: " + e.getMessage());
             }
         }
     }

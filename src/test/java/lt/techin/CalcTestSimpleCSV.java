@@ -18,7 +18,7 @@ public class CalcTestSimpleCSV extends BaseTest {
     @BeforeEach
     public void setUpCalcPage() {
         calcPage = new CalcPage(driver);
-        assertTrue(calcPage.isCalculatorReady(), "Kalkuliatorius nepasirengęs!");
+        assertTrue(calcPage.isCalculatorReady(), "Kalkuliatorius nepasirenges!");
     }
 
     // METODAS 1: CSV duomenys tiesiai kode su @CsvSource
@@ -45,9 +45,9 @@ public class CalcTestSimpleCSV extends BaseTest {
 
         // Tikriname rezultatą
         assertEquals(expected, actualResult,
-                number1 + " " + operation + " " + number2 + " turėtų būti " + expected);
+                number1 + " " + operation + " " + number2 + " turetu buti " + expected);
 
-        System.out.println("✓ Sėkmingai: " + number1 + " " + operation + " " + number2 + " = " + actualResult);
+        System.out.println("✓ Sekmingai: " + number1 + " " + operation + " " + number2 + " = " + actualResult);
     }
 
     // METODAS 2: CSV duomenys iš failo su @CsvFileSource
@@ -72,7 +72,7 @@ public class CalcTestSimpleCSV extends BaseTest {
         // Tikriname rezultatą
         assertEquals(expected, actualResult,
                 "CSV testas nepavyko: " + number1 + " " + operation + " " + number2 +
-                        " turėtų būti " + expected + ", bet gavome " + actualResult);
+                        " turėetu buti " + expected + ", bet gavome " + actualResult);
 
         System.out.println("✓ CSV testas OK: " + actualResult);
     }
@@ -80,7 +80,7 @@ public class CalcTestSimpleCSV extends BaseTest {
     // METODAS 3: Tik sudėjimo testai
     @Tag("Positive")
     @Tag("Addition")
-    @ParameterizedTest(name = "Sudėjimas: {0} + {1} = {2}")
+    @ParameterizedTest(name = "Sudejimas: {0} + {1} = {2}")
     @CsvSource({
             "1, 1, 2",
             "5, 3, 8",
@@ -88,10 +88,10 @@ public class CalcTestSimpleCSV extends BaseTest {
             "0, 0, 0",
             "-5, 3, -2"
     })
-    @DisplayName("Tik sudėjimo testai")
+    @DisplayName("Tik sudejimo testai")
     public void testOnlyAddition(String num1, String num2, String expected) {
 
-        System.out.println("Sudėjimo testas: " + num1 + " + " + num2);
+        System.out.println("Sudejimo testas: " + num1 + " + " + num2);
 
         String result = calcPage.performCalculation(num1, "plus", num2);
         assertEquals(expected, result);
@@ -104,7 +104,7 @@ public class CalcTestSimpleCSV extends BaseTest {
     @Tag("NamedTests")
     @ParameterizedTest(name = "{4}: {0} {1} {2} = {3}")
     @CsvSource({
-            "5, plus, 3, 8, 'Paprastas sudėjimas'",
+            "5, plus, 3, 8, 'Paprastas sudejimas'",
             "10, minus, 4, 6, 'Paprastas atimimas'",
             "6, times, 7, 42, 'Paprastas dauginimas'",
             "15, divide, 3, 5, 'Paprastas dalijimas'",
@@ -114,11 +114,11 @@ public class CalcTestSimpleCSV extends BaseTest {
     public void testWithNames(String num1, String operation, String num2, String expected, String testName) {
 
         System.out.println("\n=== " + testName + " ===");
-        System.out.println("Skaičiuojame: " + num1 + " " + operation + " " + num2);
+        System.out.println("Skaiciuojame: " + num1 + " " + operation + " " + num2);
 
         String result = calcPage.performCalculation(num1, operation, num2);
 
         assertEquals(expected, result, testName + " nepavyko");
-        System.out.println("✓ " + testName + " sėkmingas: " + result);
+        System.out.println("✓ " + testName + " sekmingas: " + result);
     }
 }
