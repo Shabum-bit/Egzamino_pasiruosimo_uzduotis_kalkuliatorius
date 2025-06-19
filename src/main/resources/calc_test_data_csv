@@ -1,0 +1,13 @@
+number1,operation,number2,expected
+5,plus,3,8
+10,minus,4,6
+6,times,7,42
+15,divide,3,5
+0,plus,5,5
+-3,plus,2,-1
+1000,times,2,2000
+2.5,plus,1.5,4
+100,divide,1,100
+7,minus,7,0
+20,divide,4,5
+-10,minus,-5,-5
